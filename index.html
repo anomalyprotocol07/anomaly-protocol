@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANOMALY PROTOCOL — Specter Ops</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+:root{--bg:#080c10;--panel:#101820;--panel2:#141f28;--line:#263640;--text:#e8f0ee;--muted:#91a3a5;--cyan:#68f0d0;--red:#ff5c68;--gold:#e6bd72}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Rajdhani,Arial,sans-serif;letter-spacing:.3px}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(104,240,208,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(104,240,208,.08) 1px,transparent 1px);background-size:42px 42px;z-index:-1}.topbar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:#080c10eF;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}.brand{font:800 23px 'Barlow Condensed';letter-spacing:3px}.brand span{color:var(--cyan)}.nav{display:flex;gap:26px}.nav a{color:var(--muted);text-decoration:none;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:1.5px}.nav a:hover{color:var(--cyan)}.status{font-size:12px;color:var(--cyan);letter-spacing:2px}.status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-right:8px;box-shadow:0 0 12px var(--cyan)}
+.hero{min-height:620px;padding:100px 8vw 80px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 45%,#183b3b77 0,transparent 42%),linear-gradient(100deg,#080c10 20%,#0b1519dd 65%,#080c10 100%)}.hero:after{content:"";position:absolute;right:7%;top:12%;width:410px;height:410px;border:1px solid #68f0d033;border-radius:50%;box-shadow:0 0 0 35px #68f0d00a,0 0 0 80px #68f0d008, inset 0 0 80px #68f0d012}.hero-inner{max-width:720px;position:relative;z-index:1}.eyebrow{color:var(--cyan);font-size:13px;letter-spacing:4px;font-weight:700;text-transform:uppercase}.hero h1{font:900 clamp(58px,9vw,112px)/.86 'Barlow Condensed';letter-spacing:1px;margin:22px 0 20px;text-transform:uppercase}.hero h1 span{color:var(--cyan);display:block}.hero p{color:#aababb;font-size:19px;line-height:1.55;max-width:600px}.actions{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}.btn{padding:13px 22px;border:1px solid var(--cyan);background:var(--cyan);color:#07110f;text-decoration:none;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;clip-path:polygon(0 0,92% 0,100% 28%,100% 100%,8% 100%,0 72%);cursor:pointer}.btn.alt{background:transparent;color:var(--cyan)}.hero-tag{position:absolute;right:9%;bottom:70px;color:#91a3a555;font:700 13px 'Barlow Condensed';letter-spacing:4px;writing-mode:vertical-rl}
+main{max-width:1250px;margin:auto;padding:35px 28px 100px}.section{padding:50px 0 15px;scroll-margin-top:80px}.section-head{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:24px}.section-head h2{font:800 34px 'Barlow Condensed';text-transform:uppercase;letter-spacing:2px;margin:0}.section-head small{color:var(--cyan);letter-spacing:2px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);padding:22px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--cyan);opacity:.7}.card h3{font:700 24px 'Barlow Condensed';letter-spacing:1px;margin:0 0 7px}.card p{color:var(--muted);line-height:1.5;margin:8px 0 0}.role{font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase}.tag{display:inline-block;border:1px solid #36504e;color:#b2d9d0;padding:4px 8px;font-size:11px;letter-spacing:1px;margin:12px 5px 0 0;text-transform:uppercase}
+.wide-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.feature{background:linear-gradient(135deg,#142a2a,#111820);border:1px solid #34504d;padding:28px}.feature h3{font:800 34px 'Barlow Condensed';margin:0 0 8px}.feature p{color:#b4c5c2;line-height:1.6}.spec-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.spec{background:#0a1116;border:1px solid var(--line);padding:14px}.spec b{display:block;color:var(--cyan);font:700 12px 'Barlow Condensed';letter-spacing:2px}.spec span{font-size:17px}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step{border-top:2px solid var(--cyan);background:var(--panel);padding:16px}.step strong{font:800 24px 'Barlow Condensed';display:block}.step span{color:var(--muted);font-size:13px}
+.anomaly-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.anomaly{background:var(--panel);border:1px solid var(--line);padding:17px;min-height:145px}.anomaly .rank{color:var(--cyan);font:800 12px 'Barlow Condensed';letter-spacing:2px}.anomaly h3{font:700 22px 'Barlow Condensed';margin:7px 0}.anomaly p{font-size:14px;color:var(--muted);margin:0;line-height:1.45}
+.danger{border-color:#63343c;background:linear-gradient(130deg,#26151a,#111820)}.danger:before{background:var(--red)}.danger .role{color:var(--red)}
+.location{display:grid;grid-template-columns:1fr 1fr;gap:15px}.location-card{min-height:220px;padding:25px;background:linear-gradient(140deg,#182725,#111820);border:1px solid var(--line);position:relative}.location-card h3{font:800 30px 'Barlow Condensed';margin:0 0 10px}.location-card p{color:var(--muted);line-height:1.5}.location-card .coords{position:absolute;bottom:18px;right:20px;color:#68f0d055;font-size:11px;letter-spacing:2px}
+.alert{border:1px solid #70414a;background:#24171b;padding:22px;display:flex;gap:18px;align-items:flex-start}.alert b{color:var(--red);letter-spacing:2px}.alert p{margin:5px 0 0;color:#c4b3b4}
+footer{border-top:1px solid var(--line);padding:28px 5vw;color:#718486;display:flex;justify-content:space-between;font-size:12px;letter-spacing:2px}
+@media(max-width:800px){.nav{gap:12px}.nav a{font-size:11px}.status{display:none}.hero{min-height:540px;padding:80px 7vw}.hero:after{right:-180px}.grid{grid-template-columns:1fr 1fr}.wide-grid,.location{grid-template-columns:1fr}.anomaly-grid{grid-template-columns:1fr 1fr}.timeline{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.topbar{padding:0 18px}.brand{font-size:18px}.nav{gap:9px}.nav a{font-size:9px;letter-spacing:.5px}.hero h1{font-size:66px}.hero p{font-size:16px}.grid,.anomaly-grid{grid-template-columns:1fr}.section-head h2{font-size:28px}main{padding-left:18px;padding-right:18px}.hero-tag{display:none}.spec-list{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">ANOMALY<span>_</span>PROTOCOL</div>
+  <nav class="nav"><a href="#story">Story</a><a href="#ops">Operators</a><a href="#anomalies">Anomalies</a><a href="#world">World</a></nav>
+  <div class="status"><i></i> NEXUS LINK ACTIVE</div>
+</header>
+<section class="hero">
+ <div class="hero-inner">
+  <div class="eyebrow">Specter Ops // Classified Story Archive</div>
+  <h1>When memory<br>becomes the <span>enemy.</span></h1>
+  <p>A final high-risk operation. A capsule carrying an impossible power source. And an anomaly that doesn't just erase the enemy's memories — it starts erasing their own.</p>
+  <div class="actions"><a class="btn" href="#story">Explore the protocol</a><a class="btn alt" href="#ops">Meet Specter Ops</a></div>
+ </div>
+ <div class="hero-tag">FILE: AP-07 // CLEARANCE: BLACK</div>
+</section>
+<main>
+<section class="section" id="story">
+ <div class="section-head"><h2>01 // Mission briefing</h2><small>OPERATION: ELYSIUM</small></div>
+ <div class="wide-grid">
+  <div class="feature"><div class="eyebrow">Primary objective</div><h3>Secure the Elysium Core</h3><p>Specter Ops must locate and retrieve a mysterious capsule hidden somewhere beyond the reach of ordinary maps. The capsule contains <b>Nexarion</b> — a volatile fluid linked to the source of anomaly power. If it reaches the wrong hands, the balance between reality and the anomaly world may collapse.</p><p>But the team has played a dangerous wild card: using Oblivion to erase the location of the Templar's Keep from Kakujo's top lieutenants. The effect is spreading. Operatives are beginning to forget critical mission details.</p><span class="tag">Retrieval</span><span class="tag">Memory hazard</span><span class="tag">Black-level threat</span></div>
+  <div class="spec-list">
+   <div class="spec"><b>CAPSULE</b><span>Elysium Core</span></div><div class="spec"><b>FLUID</b><span>Nexarion</span></div>
+   <div class="spec"><b>HOSTILE</b><span>Kakujo</span></div><div class="spec"><b>THREAT LEADER</b><span>King of Revenant Demons</span></div>
+   <div class="spec"><b>BASE</b><span>The Nexus Vault</span></div><div class="spec"><b>MAIN CITY</b><span>Craven's Peak</span></div>
+  </div>
+ </div>
+</section>
+<section class="section" id="ops">
+ <div class="section-head"><h2>02 // Specter Ops</h2><small>DIVISION 2 — FIELD ROSTER</small></div>
+ <div class="grid">
+  <article class="card"><div class="role">Squad leader</div><h3>SHIN</h3><p>Leader and master strategist. An expert in combat, tactical planning, and making decisions under pressure.</p><span class="tag">Main character</span><span class="tag">Combat</span></article>
+  <article class="card"><div class="role">Cyber operations</div><h3>DAVID</h3><p>A tech wizard and extraordinary hacker. Handles systems, digital security, tracking, and mission intelligence.</p><span class="tag">Hacker</span><span class="tag">Tech</span></article>
+  <article class="card"><div class="role">Paranormal specialist</div><h3>KK</h3><p>A paranormal investigator with a rare, psychic-like connection to Nexus energy and its abilities.</p><span class="tag">Nexus skills</span><span class="tag">Investigation</span></article>
+  <article class="card"><div class="role">Heavy assault</div><h3>JACKSON</h3><p>Heavy-weapons specialist and demolition expert. Opens routes that are otherwise impossible to cross.</p><span class="tag">Heavy guns</span><span class="tag">Demolition</span></article>
+  <article class="card"><div class="role">Combat medic</div><h3>STEVE</h3><p>Medic, bio-expert, and all-around support. Keeps the squad alive through hostile environments.</p><span class="tag">Medical</span><span class="tag">Bio-expert</span></article>
+  <article class="card"><div class="role">Advanced anomaly intelligence</div><h3>NOVA</h3><p>Possesses abilities similar to KK, but with greater intelligence and analytical control.</p><span class="tag">Nexus skills</span><span class="tag">Analysis</span></article>
+ </div>
+ <div class="section" style="padding-top:30px"><div class="section-head"><h2>Deployment split</h2><small>FIELD TEAMS</small></div>
+  <div class="grid">
+   <article class="card"><div class="role">Group 01 // Route clearance</div><h3>Jackson · David · KK · Steve</h3><p>Moves ahead to clear the way through hostile territory and secure a path toward the objective.</p></article>
+   <article class="card"><div class="role">Group 02 // Tracking & recovery</div><h3>Shin · David · NOVA</h3><p>Tracks Group 01, struggles to recover their location, and works to pinpoint the capsule's position.</p></article>
+   <article class="card"><div class="role">Comms infrastructure</div><h3>Smart Pads</h3><p>Long-range communication devices with a stated range of up to 100,000 km, potentially upgradeable toward unlimited range.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="anomalies">
+ <div class="section-head"><h2>03 // Anomaly index</h2><small>THREAT CLASSIFICATION: 01–08</small></div>
+ <div class="anomaly-grid">
+  <article class="anomaly"><div class="rank">RANK 01</div><h3>GLIMMER</h3><p>Weak echo anomalies. Create illusions and use minor telekinesis.</p></article>
+  <article class="anomaly"><div class="rank">RANK 02</div><h3>SHIVER</h3><p>Cold-based anomalies. Freeze objects and unleash cold waves.</p></article>
+  <article class="anomaly"><div class="rank">RANK 03</div><h3>RAVEN</h3><p>Aggressive energy balls that explode on impact and disrupt electronics.</p></article>
+  <article class="anomaly"><div class="rank">RANK 04</div><h3>MIMIC</h3><p>Shape-shifters that copy people or objects and distort perception.</p></article>
+  <article class="anomaly"><div class="rank">RANK 05</div><h3>WRECKLES</h3><p>Destructive force anomalies capable of collapsing structures and moving objects.</p></article>
+  <article class="anomaly"><div class="rank">RANK 06</div><h3>VOIDLING</h3><p>Darkness entities that consume light and create dark portals.</p></article>
+  <article class="anomaly"><div class="rank">RANK 07</div><h3>BEHOKAI</h3><p>Psychic anomalies that control minds through echoes and amplify fears.</p></article>
+  <article class="anomaly"><div class="rank">RANK 08</div><h3>DEVOURER</h3><p>A destructive apex anomaly that consumes matter and creates massive distortions.</p></article>
+ </div>
+ <div class="grid" style="margin-top:16px">
+  <article class="card danger"><div class="role">Primary antagonist</div><h3>KAKUJO</h3><p>A human with anomaly absorption, shadow manipulation, and reality-warping abilities. His power depends on the anomalies he absorbs — a possible weakness if those anomalies confuse or destabilize him.</p><span class="tag">Anomaly absorption</span><span class="tag">Shadow manipulation</span><span class="tag">Reality wrapping</span></article>
+  <article class="card danger"><div class="role">Rogue anomaly // Revenant demons</div><h3>OBLIVION</h3><p>An anomaly manipulated by Specter Ops for their own operation. Its memory-erasing effect is now spreading into the minds of the people who deployed it.</p><span class="tag">Memory erasure</span><span class="tag">Unstable asset</span></article>
+  <article class="card danger"><div class="role">Enemy hierarchy</div><h3>REVENANT DEMONS</h3><p>A group connected to the King of Revenant Demons. Kakujo's lieutenants once held the secret location of the Keep — until Oblivion altered their memories.</p><span class="tag">Hostile faction</span></article>
+ </div>
+</section>
+<section class="section" id="world">
+ <div class="section-head"><h2>04 // World locations</h2><small>MAPS // STATE: CALENDRE</small></div>
+ <div class="location">
+  <article class="location-card"><div class="eyebrow">Location 01 // Deep forest</div><h3>SHADOWWOOD FOREST</h3><p>A hostile wilderness where dense fog cuts visibility to roughly 10 metres. Toxic plants release hallucinogenic spores, mutated insects attack on sight, and unstable ground shifts like quicksand. Kakujo's soldiers patrol the forest.</p><div class="coords">VISIBILITY: 10M // HAZARD: EXTREME</div></article>
+  <article class="location-card"><div class="eyebrow">Location 02 // Hidden fortress</div><h3>THE TEMPLAR'S KEEP</h3><p>Concealed behind a waterfall, with an underwater entrance. Pressure plates trigger stone slides and poison darts. Territorial anomalies guard the Keep, while unstable bridges lead to the raised platform where the capsule rests.</p><div class="coords">ACCESS: UNDERWATER // HAZARD: CRITICAL</div></article>
+ </div>
+</section>
+<section class="section" id="protocol">
+ <div class="section-head"><h2>05 // The memory collapse</h2><small>MISSION STATUS: DETERIORATING</small></div>
+ <div class="timeline">
+  <div class="step"><strong>01 — Deploy</strong><span>Two field groups split to clear routes and locate the capsule.</span></div>
+  <div class="step"><strong>02 — Wild card</strong><span>Oblivion is used to erase the Keep's location from Kakujo's lieutenants.</span></div>
+  <div class="step"><strong>03 — Contamination</strong><span>The effect begins reaching Specter Ops. Critical memories fade.</span></div>
+  <div class="step"><strong>04 — Race</strong><span>The team must recover the objective before they forget the mission itself.</span></div>
+ </div>
+ <div class="alert" style="margin-top:18px"><div style="font-size:25px">⚠</div><div><b>CRITICAL WARNING // OBLIVION EFFECT ACTIVE</b><p>Mission recall is compromised. Verify squad identity, objective coordinates, and extraction protocol. Do not trust an unverified memory.</p></div></div>
+</section>
+</main>
+<footer><span>ANOMALY PROTOCOL // SPECTER OPS</span><span>THE NEXUS VAULT · CRAVEN'S PEAK</span><span>CLASSIFIED ARCHIVE — AP/07</span></footer>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}}));
+</script>
+</body></html>
